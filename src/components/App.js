@@ -8,6 +8,7 @@ import '../styles/Form.scss';
 import Header from './Header';
 import Dummy from './Dummy';
 import SolutionLetters from './SolutionLetters';
+import ErrorLetters from './ErrorLetters';
 
 function App() {
   const [word, setWord] = useState('');
@@ -46,20 +47,7 @@ function App() {
   };
 
   
-
-  const renderErrorLetters = () => {
-    const errorLetters = userLetters.filter(
-      (letter) =>
-        word.toLocaleLowerCase().includes(letter.toLocaleLowerCase()) === false
-    );
-    return errorLetters.map((letter, index) => {
-      return (
-        <li key={index} className='letter'>
-          {letter}
-        </li>
-      );
-    });
-  };
+    
 
   const handleLastLetter = (value) => {
     value = value.toLocaleLowerCase();
@@ -77,11 +65,8 @@ function App() {
       <main className='main'>
         <section>
           <SolutionLetters word={word} userLetters={userLetters}/>
+          <ErrorLetters word={word} userLetters={userLetters}/>
           
-          <div className='error'>
-            <h2 className='title'>Letras falladas:</h2>
-            <ul className='letters'>{renderErrorLetters()}</ul>
-          </div>
           <form className='form' onSubmit={handleSubmit}>
             <label className='title' htmlFor='last-letter'>
               Escribe una letra:
