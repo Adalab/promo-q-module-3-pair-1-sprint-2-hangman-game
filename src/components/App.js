@@ -49,7 +49,7 @@ function App() {
           <ErrorLetters word={word} userLetters={userLetters} />
           <Form lastLetter={lastLetter} handleLastLetter={handleLastLetter} />
         </section>
-        <Dummy numberOfErrors={getNumberOfErrors} />
+        <Dummy numberOfErrors={getNumberOfErrors()} />
       </main>
     </div>
   );
