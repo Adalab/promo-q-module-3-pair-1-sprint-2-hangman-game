@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import getWordFromApi from '../services/api';
 // styles
 import '../styles/App.scss';
-import '../styles/Form.scss';
 import Header from './Header';
 import Dummy from './Dummy';
 import SolutionLetters from './SolutionLetters';
@@ -50,7 +49,7 @@ function App() {
           <ErrorLetters word={word} userLetters={userLetters} />
           <Form lastLetter={lastLetter} handleLastLetter={handleLastLetter} />
         </section>
-        <Dummy numberOfErrors={getNumberOfErrors()} />
+        <Dummy numberOfErrors={getNumberOfErrors} />
       </main>
     </div>
   );
