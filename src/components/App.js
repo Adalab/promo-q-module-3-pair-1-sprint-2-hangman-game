@@ -9,6 +9,10 @@ import Dummy from './Dummy';
 import SolutionLetters from './SolutionLetters';
 import ErrorLetters from './ErrorLetters';
 import Form from './Form';
+import {Routes, Route} from "react-router-dom"
+import Footer from './Footer';
+import Instructions from './Instructions';
+import Options from './Options';
 
 function App() {
   const [word, setWord] = useState('');
@@ -42,15 +46,21 @@ function App() {
 
   return (
     <div className="page">
+
       <Header />
       <main className="main">
         <section>
-          <SolutionLetters word={word} userLetters={userLetters} />
+          <Routes>
+            <Route path="/" element={<><SolutionLetters word={word} userLetters={userLetters} />
           <ErrorLetters word={word} userLetters={userLetters} />
-          <Form lastLetter={lastLetter} handleLastLetter={handleLastLetter} />
+          <Form lastLetter={lastLetter} handleLastLetter={handleLastLetter} /></>}/>
+          <Route path="/instructions" element={<Instructions />}/>
+          <Route path="/options" element={<Options />}/>
+          </Routes>
         </section>
         <Dummy numberOfErrors={getNumberOfErrors()} />
       </main>
+      <Footer />
     </div>
   );
 }
