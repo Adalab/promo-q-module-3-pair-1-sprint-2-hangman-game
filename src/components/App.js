@@ -13,15 +13,18 @@ import { Routes, Route } from 'react-router-dom';
 import Footer from './Footer';
 import Instructions from './Instructions';
 import Options from './Options';
+import Loading from './Loading';
 
 function App() {
   const [word, setWord] = useState('');
   const [userLetters, setUserLetters] = useState([]);
   const [lastLetter, setLastLetter] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getWordFromApi().then((word) => {
       setWord(word);
+      setIsLoading(false);
     });
   }, []);
 
@@ -52,6 +55,7 @@ function App() {
   return (
     <div className="page">
       <Header />
+      <Loading isLoading={isLoading} />
       <main className="main">
         <section>
           <Routes>
