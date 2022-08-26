@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const ErrorLetters = (props) => {
      const renderErrorLetters = () => {
         const errorLetters = props.userLetters.filter(
@@ -16,6 +18,16 @@ const ErrorLetters = (props) => {
         <h2 className='title'>Letras falladas:</h2>
         <ul className='letters'>{renderErrorLetters()}</ul>
       </div>
+};
+
+ErrorLetters.defaultProps = {
+  word: "",
+  userLetters: []
+};
+
+ErrorLetters.propTypes = {
+  word: PropTypes.string.isRequired,
+  userLetters: PropTypes.array.isRequired
 }
 
 export default ErrorLetters;

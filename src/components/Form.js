@@ -1,4 +1,6 @@
 import '../styles/Form.scss';
+import PropTypes from 'prop-types';
+
 const Form = (props) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -35,4 +37,14 @@ const Form = (props) => {
     </form>
   );
 };
+
+Form.defaultProps = {
+  lastLetter: ""
+};
+
+Form.propTypes = {
+  lastLetter: PropTypes.string.isRequired,
+  handleLastLetter: PropTypes.func.isRequired
+}
+
 export default Form;

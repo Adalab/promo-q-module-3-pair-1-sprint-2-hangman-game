@@ -1,4 +1,5 @@
 import "../styles/Dummy.scss";
+// import PropTypes from 'prop-types';
 
 const Dummy = (props) => {
     return <section className={`dummy error-${props.numberOfErrors}`}>
@@ -17,5 +18,9 @@ const Dummy = (props) => {
     <span className='error-1  line'></span>
   </section>
 }
+
+// Dummy.propTypes = {
+//   numberOfErrors: PropTypes.func.isRequired
+// };
 
 export default Dummy;

@@ -1,7 +1,7 @@
 import "../styles/Letters.scss";
+import PropTypes from 'prop-types';
 
 const SolutionLetters = (props) => {
-    console.log(props);
     const renderSolutionLetters = () => {
         const wordLetters = props.word.split('');
         return wordLetters.map((letter, index) => {
@@ -17,6 +17,16 @@ const SolutionLetters = (props) => {
     <h2 className='title'>Solución:</h2>
     <ul className='letters'>{renderSolutionLetters()}</ul>
   </div>
+};
+
+SolutionLetters.defaultProps = {
+  word: "",
+  userLetters: []
+};
+
+SolutionLetters.propTypes = {
+  word: PropTypes.string.isRequired,
+  userLetters: PropTypes.array.isRequired
 }
 
 export default SolutionLetters;
